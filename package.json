@@ -1,0 +1,16 @@
+{
+  "name": "stefanotamponi",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run build && node scripts/dev.js",
+    "dev": "node scripts/dev.js",
+    "build": "rm -rf ./dist && node scripts/build.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+  "esbuild": "^0.20.0",
+  "live-server": "^1.2.2",
+  "typescript": "^5.4.0"
+  }
+}

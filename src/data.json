@@ -1,0 +1,45 @@
+{
+  "personalInfo": {
+    "name": "Stefano Tamponi",
+    "title": "backend developer",
+    "location": "Cagliari, Italy",
+    "bio": "I’m a backend developer at  [Smile.CX](https://smile.cx), building core systems that leverage next-generation AI and modern technologies.\nI enjoy exploring how software truly works, which gives me an edge in debugging and quickly spotting both problems and solutions.\nOutside of work, I’m passionate about videogames and love immersing myself in different music genres while experimenting with my own projects."
+  },
+  "skills": [
+    "Node.js",
+    "Development",
+    "Optimization",
+    "Reverse-Engineering",
+    "Debugging"
+  ],
+  "skillDescriptions": {
+    "Development": "Development is about building reliable, state-of-the-art software with a clean, effective approach to problem-solving. My focus is on backend systems and microservices, but I also enjoy creating usable, well-designed interfaces on the frontend.\nDriven by curiosity, I experiment with new technologies and devices to keep refining how I build.",
+    "Node.js": "Node.js is a powerful JavaScript runtime built on Chrome’s V8 engine, designed for building fast, scalable, and event-driven applications.\nIt’s my main weapon of choice for backend development.\nI use it to build microservices, design REST APIs, and create systems that handle high concurrency and real-time communication with efficiency and reliability.",
+    "Debugging": "Debugging is the essential process of identifying and fixing issues in software — but it’s also something of an art form.\nWhile it’s most visible when things don’t work as intended, I see debugging as a way to understand how systems truly function, uncover hidden patterns, and ultimately refine and improve solutions beyond the immediate fix.",
+    "Reverse-Engineering": "Reverse engineering is both a discipline and an art, offering a powerful way to uncover how systems work. In practice, it’s often about crafting solutions when only the effects are visible but the causes are hidden. For me, reverse engineering is the art of understanding software from its outcome, then reconstructing its logic and execution through analysis, insight, and creative problem-solving.",
+    "Optimization": "Optimization is essential in software development, from small applications to large-scale distributed systems. It involves analyzing performance-intensive operations, planning for scalability, and designing efficient, maintainable solutions. For complex software, optimization can be the key factor that allows it to run smoothly across different machines and environments."
+  },
+  "links": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/stefanotamponi",
+      "ariaLabel": "GitHub"
+    },
+    {
+      "label": "LinkedIn", 
+      "href": "#",
+      "ariaLabel": "LinkedIn"
+    },
+    {
+      "label": "Resume",
+      "href": "resume",
+      "ariaLabel": "Resume"
+    }
+  ],
+  "theme": {
+    "toggleLabels": {
+      "light": "◐",
+      "dark": "◑"
+    }
+  }
+}
