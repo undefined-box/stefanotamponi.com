@@ -49,41 +49,92 @@
   margin-bottom: 15px;
 }
 
-.project-navigation {
+/* Featured Project Box */
+.featured-project-container {
   width: 100%;
-  margin: 20px 0 0 0;
+  margin: 32px 0 0 0;
   display: flex;
-  justify-content: center;
-  border-top: 2px solid var(--rule);
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-.project-link-item {
+.featured-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 3px 10px;
+  position: absolute;
+  top: -9px;
+  letter-spacing: 0.15em;
+  z-index: 2;
+}
+
+.featured-project-box {
   all: unset;
   box-sizing: border-box;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--ink);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: none;
-  padding: 14px 20px;
   cursor: pointer;
-  transition: color 0.18s;
+  width: 100%;
+  border: 1px solid var(--rule);
+  padding: 24px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  background: transparent;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 6px;
+  text-align: center;
 }
 
-.project-link-item span {
-  padding: 4px 8px;
-  transition: all 0.2s ease;
+.featured-project-box:hover {
+  border-color: var(--ink);
+  background: rgba(0, 0, 0, 0.01);
 }
 
-.project-link-item:hover span {
-  background-color: var(--ink);
-  color: var(--bg);
-  border-radius: 4px;
+body.theme-dark .featured-project-box:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.featured-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--ink);
+}
+
+.featured-desc {
+  font-family: var(--main-font);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+
+.read-more {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .featured-project-box {
+    padding: 20px;
+  }
+  .featured-title {
+    font-size: 18px;
+  }
+  .featured-desc {
+    font-size: 13px;
+  }
 }
 
 .music-toggle,

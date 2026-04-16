@@ -45,8 +45,12 @@ export function createHero(data: AppData) {
       <h1 class="display">${data.personalInfo.name}</h1>
       <p class="subtitle">${data.personalInfo.title} — ${data.personalInfo.location}</p>
       
-      <div class="project-navigation">
-        <button class="project-link-item" type="button" id="nav-cameraberry"><span>Project: Cameraberry 3</span></button>
+      <div class="featured-project-container">
+        <span class="featured-label">Latest Project</span>
+        <button class="featured-project-box" type="button" id="nav-cameraberry">
+          <h2 class="featured-title">Cameraberry 3</h2>
+          <p class="featured-desc">A modern DIY retro camera exploring technical autonomy. <span class="read-more">View project →</span></p>
+        </button>
       </div>
 
       <div class="skills-line-separator">

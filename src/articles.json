@@ -46,12 +46,12 @@
       }
     ],
     "gallery": [
-      { "src": "assets/cameraberry3.png", "title": "Frontal View", "desc": "Main interface showing the mechanical buttons and lens alignment." },
-      { "src": "assets/cameraberry3.png", "title": "Internal View", "desc": "Detailed look at the Raspberry Pi 3 B+ integration and custom wiring." },
-      { "src": "assets/cameraberry3.png", "title": "Settings View", "desc": "Custom UI for adjusting ISO, Shutter Speed, and White Balance." },
-      { "src": "assets/cameraberry3.png", "title": "Preview Mode", "desc": "Real-time feedback from the IMX477 sensor on the IPS display." },
+      { "src": "assets/cameraberry3.png", "title": "Frontal View", "desc": "The cameraberry 3 in all of its glory." },
+      { "src": "assets/cameraberry3.png", "title": "Internal View", "desc": "Detailed look at the Raspberry Pi 3 B+ integration and spaghetti wiring." },
+      { "src": "assets/cameraberry3.png", "title": "Settings View", "desc": "The settings menu for preset selections and other. The menu is designed to cycle through options." },
+      { "src": "assets/cameraberry3.png", "title": "Preview Mode", "desc": "Real time preview of the image being captured." },
       { "src": "assets/cameraberry3.png", "title": "Remote Mode", "desc": "Interface for controlling the camera via web dashboard." },
-      { "src": "assets/cameraberry3.png", "title": "Example Photo", "desc": "A sample shot demonstrating the high-fidelity capture of the system." }
+      { "src": "assets/cameraberry3.png", "title": "Example Photo", "desc": "A sample shot - the image is processed locally from the Raspberry Pi 3 B+ for brightness and color adjustments, then sent to the server which processes it for further analysis and captioning." }
     ]
   }
 }
