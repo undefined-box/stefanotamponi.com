@@ -9,12 +9,21 @@ const srcIndex = path.join(__dirname, '..', 'index.html')
 const destIndex = path.join(outdir, 'index.html')
 const srcStyles = path.join(__dirname, '..', 'src', 'styles.css')
 const destStyles = path.join(outdir, 'styles.css')
+const srcAssets = path.join(__dirname, '..', 'src', 'assets')
+const destAssets = path.join(outdir, 'assets')
 
 
 // ensure outdir exists and copy static files
 if (!fs.existsSync(outdir)) fs.mkdirSync(outdir, { recursive: true })
 fs.copyFileSync(srcIndex, destIndex)
 fs.copyFileSync(srcStyles, destStyles)
+
+if (fs.existsSync(srcAssets)) {
+  if (!fs.existsSync(destAssets)) fs.mkdirSync(destAssets, { recursive: true })
+  fs.readdirSync(srcAssets).forEach(file => {
+    fs.copyFileSync(path.join(srcAssets, file), path.join(destAssets, file))
+  })
+}
 
 // Watch for changes to styles.css and copy to dist on change
 fs.watch(srcStyles, { persistent: true }, (eventType) => {

@@ -44,6 +44,11 @@ export function createHero(data: AppData) {
     <div class="typography-card">
       <h1 class="display">${data.personalInfo.name}</h1>
       <p class="subtitle">${data.personalInfo.title} — ${data.personalInfo.location}</p>
+      
+      <div class="project-navigation">
+        <button class="project-link-item" type="button" id="nav-cameraberry"><span>Project: Cameraberry 3</span></button>
+      </div>
+
       <div class="skills-line-separator">
         ${skillsHTML}
       </div>
@@ -57,6 +62,11 @@ export function createHero(data: AppData) {
   const bioContent = el.querySelector('#bio-content') as HTMLElement;
   const bioNodes = renderTextWithLinks(data.personalInfo.bio);
   bioNodes.forEach(node => bioContent.appendChild(node));
+
+  // Add listener for the new project button
+  el.querySelector('#nav-cameraberry')?.addEventListener('click', () => {
+    window.location.hash = '#cameraberry';
+  });
 
   return el
 }
