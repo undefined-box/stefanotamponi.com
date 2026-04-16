@@ -24,3 +24,33 @@ export interface AppData {
     }
   }
 }
+
+export interface ArticleSection {
+  title: string
+  content: string
+  isLead?: boolean
+}
+
+export interface GalleryImage {
+  src: string
+  title: string
+  desc: string
+}
+
+export interface Article {
+  id: string
+  title: string
+  subtitle: string
+  mainImage: {
+    src: string
+    alt: string
+    caption: string
+  }
+  components: string[]
+  sections: ArticleSection[]
+  gallery: GalleryImage[]
+}
+
+export interface ArticlesData {
+  [key: string]: Article
+}

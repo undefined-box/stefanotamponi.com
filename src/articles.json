@@ -1,0 +1,57 @@
+{
+  "cameraberry": {
+    "id": "cameraberry",
+    "title": "Cameraberry 3",
+    "subtitle": "A MODERN DIY RETRO CAMERA",
+    "mainImage": {
+      "src": "assets/cameraberry3.png",
+      "alt": "Cameraberry 3 Schematic",
+      "caption": "Fig 1.1: Schematic of the Cameraberry 3 final version."
+    },
+    "components": [
+      "Raspberry Pi 3 Model B+",
+      "Raspberry Pi Camera 3",
+      "Thermal Printer",
+      "1.4\" IPS Display",
+      "3D Printed PLA Chassis",
+      "Mechanical Tactile Buttons",
+      "Status LEDs",
+      "Internal 10000mAh Li-Po Battery"
+    ],
+    "sections": [
+      {
+        "title": "A Statement of Personality",
+        "content": "In an era of mass-produced, powerful, and ready-to-use imaging devices, the Cameraberry project emerges as a statement of technical personality. The third iteration of this series, documented here, stands as a monument to the art of DIY electronics and retro-inspired design.",
+        "isLead": true
+      },
+      {
+        "title": "Beyond a Simple Camera",
+        "content": "The Cameraberry 3 is not merely a camera; it is a surprisingly powerful computer built for deep experimentation, merged with the soul of an instant camera. Utilizing a custom-designed chassis and incorporating a thermal printer, it bridges the gap between raw hardware components and sophisticated software capabilities."
+      },
+      {
+        "title": "Technical Backbone",
+        "content": "The schematic reveals a compact, rugged design. Key features include physical controls for manual interaction—a nod to the tactile nature of classic photography—integrated with a modern digital backbone. The system is connected to a self-hosted backend, enabling LLM-powered image descriptions and n8n-powered workflows for on-the-go image and prompt manipulation. Additionally, a dedicated service hosts a YOLO instance for real-time object recognition, while a remote web server allows for wireless capture and full control."
+      },
+      {
+        "title": "The Backend Ecosystem",
+        "content": "The dedicated backend infrastructure deserves a special mention: it is powered by two additional Raspberry Pi 5 boards. One functions as a secure internet gateway, hosting the web server and remote control services plus an n8n instance, while the second is overclocked to 3GHz to handle the demanding LLM and YOLO processes—all seamlessly and securely integrated into a unified ecosystem."
+      },
+      {
+        "title": "Intelligent Processing",
+        "content": "The backend provides two distinct processing modes: a 'fast' mode that delivers abstract, poetic descriptions in just 15 seconds—using YOLO object detection to feed the LLM prompt and bypass full image inference time—and a 'detailed' mode that generates comprehensive analysis by processing the entire image through the LLM within about a minute. These processes run in parallel with the printing phase for near-instant feedback. Through the n8n-powered workflow, the system can also archive the original high-resolution image for further processing or instant mobile notifications. Of course, the camera remains fully functional for traditional offline shooting whenever needed."
+      },
+      {
+        "title": "A Personal Milestone",
+        "content": "This project is a milestone in my personal research into hardware-software integration, demonstrating that sophisticated tools can be built from the ground up with enough curiosity and persistent debugging."
+      }
+    ],
+    "gallery": [
+      { "src": "assets/cameraberry3.png", "title": "Frontal View", "desc": "Main interface showing the mechanical buttons and lens alignment." },
+      { "src": "assets/cameraberry3.png", "title": "Internal View", "desc": "Detailed look at the Raspberry Pi 3 B+ integration and custom wiring." },
+      { "src": "assets/cameraberry3.png", "title": "Settings View", "desc": "Custom UI for adjusting ISO, Shutter Speed, and White Balance." },
+      { "src": "assets/cameraberry3.png", "title": "Preview Mode", "desc": "Real-time feedback from the IMX477 sensor on the IPS display." },
+      { "src": "assets/cameraberry3.png", "title": "Remote Mode", "desc": "Interface for controlling the camera via web dashboard." },
+      { "src": "assets/cameraberry3.png", "title": "Example Photo", "desc": "A sample shot demonstrating the high-fidelity capture of the system." }
+    ]
+  }
+}

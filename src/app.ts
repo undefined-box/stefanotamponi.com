@@ -1,5 +1,6 @@
 import data from './data.json'
-import { AppData } from './types'
+import articlesData from './articles.json'
+import { AppData, ArticlesData } from './types'
 import { createHero } from './components/hero'
 import { createArticle } from './components/article'
 import { setupSkillInteractions, handleSkillSeparators } from './components/skillInteractions'
@@ -10,24 +11,29 @@ import { calculateAndSetBioMinHeight } from './utils/bioHeightCalculator'
 // Main Application
 export class App {
   private data: AppData
+  private articles: ArticlesData
   private themeManager: ThemeManager
   private currentView: 'home' | 'article' = 'home'
 
   constructor() {
     this.data = data as AppData
+    this.articles = articlesData as ArticlesData
     this.themeManager = new ThemeManager(this.data.theme.toggleLabels.light, this.data.theme.toggleLabels.dark)
   }
 
   private handleRouting(): void {
     const hash = window.location.hash
-    if (hash === '#cameraberry') {
-      this.renderView('article')
-    } else {
-      this.renderView('home')
+    if (hash.startsWith('#')) {
+      const articleId = hash.substring(1)
+      if (this.articles[articleId]) {
+        this.renderView('article', articleId)
+        return
+      }
     }
+    this.renderView('home')
   }
 
-  private renderView(view: 'home' | 'article'): void {
+  private renderView(view: 'home' | 'article', articleId?: string): void {
     this.currentView = view
     const app = document.getElementById('app')!
     app.innerHTML = ''
@@ -54,8 +60,9 @@ export class App {
           })
         }
       })
-    } else if (view === 'article') {
-      app.appendChild(createArticle(() => {
+    } else if (view === 'article' && articleId) {
+      const article = this.articles[articleId]
+      app.appendChild(createArticle(article, () => {
         window.location.hash = ''
       }))
     }

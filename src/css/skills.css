@@ -1,0 +1,114 @@
+.skills-line-separator {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0 8px;
+  margin: 0 0 8px 0;
+  width: 100%;
+  border-top: 2px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+  padding: 12px 0;
+  position: relative;
+  min-height: 38px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.skills-line-item {
+  all: unset;
+  box-sizing: border-box;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.8px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  background: none;
+  padding: 0 1px;
+  user-select: text;
+  line-height: 1.2;
+  flex: 0 0 auto;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.18s;
+  align-self: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  white-space: nowrap;
+}
+
+.skills-line-item span {
+  padding: 2px 4px;
+}
+
+.skills-line-item.active span {
+  background-color: var(--ink);
+  color: var(--bg);
+  border-radius: 4px;
+}
+
+.skills-line-item::after {
+  content: '·';
+  font-size: 11px;
+  color: var(--accent);
+  opacity: 0.7;
+  font-weight: 900;
+  margin-left: 8px;
+  line-height: 1.2;
+}
+
+.skills-line-item:last-child::after,
+.skills-line-item.end-of-line::after,
+.skills-line-item:not(:has(+ .skills-line-item))::after {
+  display: none;
+}
+
+.skill-inline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 0;
+}
+
+/* Skeleton Loader */
+.skeleton-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-loader {
+  width: 100%;
+  height: 1.6em;
+  background: var(--ink);
+  transform-origin: left;
+}
+
+.loading-start .skeleton-loader {
+  animation: skeleton-redact 0.4s ease-out forwards;
+}
+
+@keyframes skeleton-redact {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+@media (max-width: 600px) {
+  .skills-line-separator {
+    gap: 4px 4px;
+    padding: 8px 0;
+    margin: 14px 0;
+  }
+}

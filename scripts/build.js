@@ -7,6 +7,8 @@ const srcIndex = path.join(__dirname, '..', 'index.html');
 const destIndex = path.join(outdir, 'index.html');
 const srcStyles = path.join(__dirname, '..', 'src', 'styles.css');
 const destStyles = path.join(outdir, 'styles.css');
+const srcCssDir = path.join(__dirname, '..', 'src', 'css');
+const destCssDir = path.join(outdir, 'css');
 const srcSounds = path.join(__dirname, '..', 'src', 'sounds');
 const destSounds = path.join(outdir, 'sounds');
 const srcIcons = path.join(__dirname, '..', 'src', 'icons');
@@ -17,6 +19,14 @@ const destAssets = path.join(outdir, 'assets');
 if (!fs.existsSync(outdir)) fs.mkdirSync(outdir, { recursive: true });
 fs.copyFileSync(srcIndex, destIndex);
 fs.copyFileSync(srcStyles, destStyles);
+
+if (fs.existsSync(srcCssDir)) {
+  if (!fs.existsSync(destCssDir)) fs.mkdirSync(destCssDir, { recursive: true });
+  fs.readdirSync(srcCssDir).forEach(file => {
+    fs.copyFileSync(path.join(srcCssDir, file), path.join(destCssDir, file));
+  });
+}
+
 if (fs.existsSync(srcSounds)) {
   if (!fs.existsSync(destSounds)) fs.mkdirSync(destSounds, { recursive: true });
   fs.readdirSync(srcSounds).forEach(file => {

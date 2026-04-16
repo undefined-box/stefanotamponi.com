@@ -9,6 +9,8 @@ const srcIndex = path.join(__dirname, '..', 'index.html')
 const destIndex = path.join(outdir, 'index.html')
 const srcStyles = path.join(__dirname, '..', 'src', 'styles.css')
 const destStyles = path.join(outdir, 'styles.css')
+const srcCssDir = path.join(__dirname, '..', 'src', 'css')
+const destCssDir = path.join(outdir, 'css')
 const srcAssets = path.join(__dirname, '..', 'src', 'assets')
 const destAssets = path.join(outdir, 'assets')
 
@@ -17,6 +19,18 @@ const destAssets = path.join(outdir, 'assets')
 if (!fs.existsSync(outdir)) fs.mkdirSync(outdir, { recursive: true })
 fs.copyFileSync(srcIndex, destIndex)
 fs.copyFileSync(srcStyles, destStyles)
+
+function copyCssDir() {
+  if (fs.existsSync(srcCssDir)) {
+    if (!fs.existsSync(destCssDir)) fs.mkdirSync(destCssDir, { recursive: true })
+    fs.readdirSync(srcCssDir).forEach(file => {
+      fs.copyFileSync(path.join(srcCssDir, file), path.join(destCssDir, file))
+    })
+    console.log('CSS directory updated')
+  }
+}
+
+copyCssDir()
 
 if (fs.existsSync(srcAssets)) {
   if (!fs.existsSync(destAssets)) fs.mkdirSync(destAssets, { recursive: true })
@@ -32,6 +46,13 @@ fs.watch(srcStyles, { persistent: true }, (eventType) => {
     console.log('styles.css updated')
   }
 })
+
+// Watch CSS directory
+if (fs.existsSync(srcCssDir)) {
+  fs.watch(srcCssDir, { persistent: true, recursive: true }, (eventType) => {
+    copyCssDir()
+  })
+}
 
 ;(async () => {
   try {
