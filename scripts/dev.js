@@ -1,58 +1,45 @@
 const esbuild = require('esbuild')
 const liveServer = require('live-server')
 const path = require('path')
+const fs = require('fs')
 
 const outdir = path.join(__dirname, '..', 'dist')
-
-const fs = require('fs')
 const srcIndex = path.join(__dirname, '..', 'index.html')
 const destIndex = path.join(outdir, 'index.html')
-const srcStyles = path.join(__dirname, '..', 'src', 'styles.css')
-const destStyles = path.join(outdir, 'styles.css')
-const srcCssDir = path.join(__dirname, '..', 'src', 'css')
-const destCssDir = path.join(outdir, 'css')
+const srcIcons = path.join(__dirname, '..', 'src', 'icons')
 const srcAssets = path.join(__dirname, '..', 'src', 'assets')
 const destAssets = path.join(outdir, 'assets')
+const srcSounds = path.join(__dirname, '..', 'src', 'sounds')
+const destSounds = path.join(outdir, 'sounds')
 
-
-// ensure outdir exists and copy static files
+// ensure outdir exists
 if (!fs.existsSync(outdir)) fs.mkdirSync(outdir, { recursive: true })
-fs.copyFileSync(srcIndex, destIndex)
-fs.copyFileSync(srcStyles, destStyles)
 
-function copyCssDir() {
-  if (fs.existsSync(srcCssDir)) {
-    if (!fs.existsSync(destCssDir)) fs.mkdirSync(destCssDir, { recursive: true })
-    fs.readdirSync(srcCssDir).forEach(file => {
-      fs.copyFileSync(path.join(srcCssDir, file), path.join(destCssDir, file))
+function copyStatics() {
+  fs.copyFileSync(srcIndex, destIndex)
+  
+  if (fs.existsSync(srcIcons)) {
+    fs.readdirSync(srcIcons).forEach(file => {
+      fs.copyFileSync(path.join(srcIcons, file), path.join(outdir, file))
     })
-    console.log('CSS directory updated')
+  }
+
+  if (fs.existsSync(srcAssets)) {
+    if (!fs.existsSync(destAssets)) fs.mkdirSync(destAssets, { recursive: true })
+    fs.readdirSync(srcAssets).forEach(file => {
+      fs.copyFileSync(path.join(srcAssets, file), path.join(destAssets, file))
+    })
+  }
+
+  if (fs.existsSync(srcSounds)) {
+    if (!fs.existsSync(destSounds)) fs.mkdirSync(destSounds, { recursive: true })
+    fs.readdirSync(srcSounds).forEach(file => {
+      fs.copyFileSync(path.join(srcSounds, file), path.join(destSounds, file))
+    })
   }
 }
 
-copyCssDir()
-
-if (fs.existsSync(srcAssets)) {
-  if (!fs.existsSync(destAssets)) fs.mkdirSync(destAssets, { recursive: true })
-  fs.readdirSync(srcAssets).forEach(file => {
-    fs.copyFileSync(path.join(srcAssets, file), path.join(destAssets, file))
-  })
-}
-
-// Watch for changes to styles.css and copy to dist on change
-fs.watch(srcStyles, { persistent: true }, (eventType) => {
-  if (eventType === 'change') {
-    fs.copyFileSync(srcStyles, destStyles)
-    console.log('styles.css updated')
-  }
-})
-
-// Watch CSS directory
-if (fs.existsSync(srcCssDir)) {
-  fs.watch(srcCssDir, { persistent: true, recursive: true }, (eventType) => {
-    copyCssDir()
-  })
-}
+copyStatics()
 
 ;(async () => {
   try {
@@ -65,12 +52,15 @@ if (fs.existsSync(srcCssDir)) {
       loader: {
         '.ttf': 'file',
         '.woff': 'file',
-        '.woff2': 'file'
+        '.woff2': 'file',
+        '.png': 'file',
+        '.jpg': 'file',
+        '.svg': 'dataurl'
       },
-      assetNames: 'fonts/[name]',
+      assetNames: 'assets/[name]',
     })
     await ctx.watch()
-  // rebuild will update bundle.js; keep static files copied on start
+    console.log('Watching for changes...')
   } catch (err) {
     console.error(err)
     process.exit(1)
