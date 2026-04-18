@@ -3,6 +3,23 @@
   max-width: 820px;
 }
 
+/* Article-specific Site Branding Tweaks */
+.article-page .display {
+  font-size: 28px; /* Slightly smaller than home */
+  margin-bottom: 4px;
+}
+
+.article-page .subtitle {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+@media(min-width: 720px) {
+  .article-page .display {
+    font-size: 32px;
+  }
+}
+
 .article-container {
   display: flex;
   flex-direction: column;
@@ -18,8 +35,8 @@
 
 .article-nav {
   width: 100%;
-  text-align: left;
-  margin-bottom: 24px;
+  text-align: center;
+  margin-bottom: 48px;
 }
 
 .article-back-link {
@@ -28,26 +45,24 @@
   cursor: pointer;
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
-  text-align: center;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  padding: 8px 16px;
-  border: 1px solid var(--rule);
+  color: var(--ink);
   transition: all 0.2s ease;
-  text-transform: uppercase;
+  padding: 4px 8px;
+  border-bottom: 1px dashed transparent;
 }
 
 .article-back-link:hover {
-  background: var(--ink) !important;
-  color: var(--bg);
-  border-color: var(--ink);
+  border-bottom-color: var(--ink);
+  opacity: 0.8;
 }
 
 .article-header {
   border-bottom: 2px solid var(--rule);
   padding-bottom: 20px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   width: 100%;
 }
 
@@ -77,17 +92,62 @@
 }
 
 .article-body {
-  text-align: justify;
-  hyphens: auto;
   width: 100%;
 }
 
+/* Intro Section Styles */
+.article-feature-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .article-feature-row {
+    display: grid;
+    grid-template-columns: 1fr 240px; /* Text takes available space, Image is fixed */
+    grid-template-areas: 
+      "lead image"
+      "comp image";
+    gap: 0 32px;
+    text-align: left;
+    align-items: start;
+  }
+
+  .article-main-image {
+    grid-area: image;
+    float: none !important; /* Disable float for grid */
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .article-body p.lead {
+    grid-area: lead;
+    margin-bottom: 20px;
+  }
+
+  .intro-components {
+    grid-area: comp;
+    margin: 0 !important;
+  }
+
+  .intro-components .newspaper-list {
+    column-count: 2;
+    column-gap: 24px;
+  }
+  
+  .intro-components .newspaper-list li {
+    break-inside: avoid;
+  }
+}
+
 .article-main-image {
-  float: right;
-  width: 280px;
-  margin: 0 0 20px 32px;
+  width: 100%;
   border: 1px solid var(--rule);
-  padding: 8px;
+  padding: 6px;
+  background: var(--bg);
+  box-sizing: border-box;
 }
 
 body.theme-dark .article-main-image {
@@ -98,11 +158,75 @@ body.theme-dark .article-main-image {
   width: 100%;
   height: auto;
   display: block;
-  filter: contrast(1.1);
 }
 
-body.theme-dark .schematic-img {
+/* Dynamic Inversion Logic */
+body.theme-dark .invert-dark {
   filter: invert(1) contrast(0.9) brightness(1.2);
+}
+
+/* Ensure gallery/modal images are NEVER inverted */
+#article-modal img,
+.gallery-compact img {
+  filter: none !important;
+}
+
+.article-body p.lead {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+  margin-top: 0;
+}
+
+.article-body p.lead::first-letter {
+  float: left;
+  font-size: 52px;
+  line-height: 1;
+  font-weight: 700;
+  margin-right: 8px;
+  font-family: 'Outfit', sans-serif;
+  color: var(--ink);
+}
+
+/* Divider Line */
+.article-divider {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 32px 0;
+  width: 100%;
+}
+
+/* Multi-column Body */
+.article-columns {
+  column-count: 1;
+  column-gap: 40px;
+  column-rule: 1px solid var(--rule);
+  text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .article-columns {
+    column-count: 2;
+  }
+}
+
+.article-inline-image {
+  width: 100%;
+  margin: 20px 0;
+  border: 1px solid var(--rule);
+  padding: 6px;
+  break-inside: avoid;
+  background: var(--bg);
+}
+
+body.theme-dark .article-inline-image {
+  background: #1a1b1d;
+}
+
+.article-inline-image img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .image-caption {
@@ -121,28 +245,16 @@ body.theme-dark .schematic-img {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--ink);
-  margin: 32px 0 12px 0;
+  margin: 24px 0 12px 0;
   border-bottom: 1px solid var(--rule);
   display: inline-block;
   letter-spacing: 0.05em;
 }
 
-.article-body p.lead::first-letter {
-  float: left;
-  font-size: 52px;
-  line-height: 1;
-  font-weight: 700;
-  margin-right: 8px;
-  font-family: 'Outfit', sans-serif;
-  color: var(--ink);
-}
-
 .article-list-section {
-  display: flow-root;
-  overflow: hidden; /* Extra safety for BFC */
   break-inside: avoid;
   margin: 20px 0;
-  padding: 16px;
+  padding: 14px;
   border: 1px solid var(--rule);
   background: rgba(0, 0, 0, 0.02);
 }
@@ -153,35 +265,34 @@ body.theme-dark .article-list-section {
 
 .list-title {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   border-bottom: 1px solid var(--rule);
   padding-bottom: 4px;
   color: var(--ink);
 }
 
-.newspaper-list, .gallery-list {
+.newspaper-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .newspaper-list li {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.4;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   padding-left: 14px;
   position: relative;
-  color: var(--ink);
 }
 
 .newspaper-list li::before {
   content: "■";
   position: absolute;
   left: 0;
-  font-size: 8px;
+  font-size: 7px;
   top: 4px;
   color: var(--muted);
 }
@@ -197,7 +308,6 @@ body.theme-dark .article-list-section {
   color: var(--rule);
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  user-select: none;
 }
 
 .modal-trigger {
@@ -205,10 +315,8 @@ body.theme-dark .article-list-section {
   cursor: pointer;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  color: var(--ink);
   font-weight: 700;
   text-transform: uppercase;
-  text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: all 0.2s;
 }

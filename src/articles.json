@@ -4,9 +4,16 @@
     "title": "Cameraberry 3",
     "subtitle": "A MODERN DIY RETRO CAMERA",
     "mainImage": {
-      "src": "assets/cameraberry3b.png",
+      "src": "assets/cameraberry_project.png",
       "alt": "Cameraberry 3 Schematic",
-      "caption": "Fig 1.1: Schematic of the final Cameraberry 3 version."
+      "caption": "Fig 1.1: Schematic of the final Cameraberry 3 version.",
+      "shouldInvert": true
+    },
+    "secondaryImage": {
+      "src": "assets/exploded_front.png",
+      "alt": "3D Rendering",
+      "caption": "Fig 1.2: 3D CAD visualization of the chassis geometry.",
+      "shouldInvert": true
     },
     "components": [
       "Raspberry Pi 3 Model B+",
@@ -56,7 +63,7 @@
       { "src": "assets/settings_mode.jpg", "title": "Configuration Interface", "desc": "The settings menu allows users to cycle through presets and configure system parameters directly on the device." },
       { "src": "assets/remote_view.png", "title": "Remote Dashboard", "desc": "The web-based interface for remote camera control, enabling wireless capture and full system management from any browser." },
       { "src": "assets/remote_scan_view.png", "title": "Intelligent Scan Mode", "desc": "Scan mode in action, performing real-time object recognition via YOLO. A colleague assists with the demonstration to showcase the tracking capabilities." },
-      { "src": "assets/cameraberry3.png", "title": "The Final Result", "desc": "A sample output. The image is processed locally for brightness and color before being sent to the server for AI-powered analysis and descriptive captioning." },
+      { "src": "assets/result.jpg", "title": "The Final Result", "desc": "A sample output. The image is processed locally for brightness and color before being sent to the server for AI-powered analysis and descriptive captioning. Meow." },
       { "src": "assets/exploded_front.png", "title": "SCAD Exploded View (front)", "desc": "The final 3D model generated via OpenSCAD using LLM-assisted, code-based modeling. The power button was custom 3D-printed to leverage a recycled power bank while maintaining a unique design." },
       { "src": "assets/exploded_back.png", "title": "SCAD Exploded View (back)", "desc": "Rear exploded view. Multiple iterations were required to optimize internal space and thermal management for the Raspberry Pi 3 B+. It features a dedicated aperture for the battery indicator." },
       { "src": "assets/cameraberry1.jpg", "title": "The Origins: Cameraberry 1", "desc": "The original prototype. This early version lacked a display and a physical power button, making safe shutdowns impossible without disconnecting the power supply. The initial 'tower' design was eventually abandoned in favor of a more usable form factor." },

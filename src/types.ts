@@ -38,17 +38,24 @@ export interface GalleryImage {
 }
 
 export interface Article {
-  id: string
-  title: string
-  subtitle: string
+  id: string;
+  title: string;
+  subtitle: string;
   mainImage: {
-    src: string
-    alt: string
-    caption: string
-  }
-  components: string[]
-  sections: ArticleSection[]
-  gallery: GalleryImage[]
+    src: string;
+    alt: string;
+    caption: string;
+    shouldInvert?: boolean;
+  };
+  secondaryImage?: {
+    src: string;
+    alt: string;
+    caption: string;
+    shouldInvert?: boolean;
+  };
+  components: string[];
+  sections: ArticleSection[];
+  gallery: GalleryImage[];
 }
 
 export interface ArticlesData {

@@ -5,7 +5,7 @@ import { createHero } from './components/hero'
 import { createArticle } from './components/article'
 import { setupSkillInteractions, handleSkillSeparators } from './components/skillInteractions'
 import { ThemeManager } from './utils/themeManager'
-import { setupResumeButton } from './utils/musicPlayer'
+import { setupResumeButton, updateResumeButtons } from './utils/musicPlayer'
 import { calculateAndSetBioMinHeight } from './utils/bioHeightCalculator'
 
 // Main Application
@@ -36,7 +36,11 @@ export class App {
   private renderView(view: 'home' | 'article', articleId?: string): void {
     this.currentView = view
     const app = document.getElementById('app')!
+    
+    // Preserve UI elements
+    const uiElements = Array.from(app.querySelectorAll('.theme-toggle, .music-toggle'))
     app.innerHTML = ''
+    uiElements.forEach(el => app.appendChild(el))
 
     if (view === 'home') {
       const hero = createHero(this.data)
@@ -62,21 +66,18 @@ export class App {
       })
     } else if (view === 'article' && articleId) {
       const article = this.articles[articleId]
-      app.appendChild(createArticle(article, () => {
+      app.appendChild(createArticle(article, this.data, () => {
         window.location.hash = ''
       }))
     }
+
+    // Sync labels after render
+    updateResumeButtons()
   }
 
   public mount(): void {
     this.themeManager.mount()
     
-    // Update page title
-    const titleElement = document.getElementById('page-title')
-    if (titleElement) {
-      titleElement.textContent = this.data.personalInfo.name
-    }
-
     // Initial routing
     this.handleRouting()
 

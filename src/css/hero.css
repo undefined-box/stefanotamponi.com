@@ -137,35 +137,6 @@ body.theme-dark .featured-project-box:hover {
   }
 }
 
-.music-toggle,
-.theme-toggle {
-  position: absolute;
-  top: 18px;
-  border: none;
-  outline: none;
-  opacity: .3;
-  font-weight: 700;
-  color: var(--ink);
-  cursor: pointer;
-  font-family: 'JetBrains Mono', monospace;
-  text-transform: uppercase;
-  font-size: 2em;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
-}
-
-.music-toggle { right: 68px; }
-.theme-toggle { right: 18px; }
-
-body.theme-dark .theme-toggle {
-  --toggle-bg: rgba(20, 20, 30, 0.32);
-  --toggle-hover: rgba(255, 255, 255, 0.10);
-}
-
 @media(min-width: 760px) {
   .typography-card {
     padding: 2em;
