@@ -88,7 +88,6 @@
   margin: 0 0 20px 32px;
   border: 1px solid var(--rule);
   padding: 8px;
-  background: #fff;
 }
 
 body.theme-dark .article-main-image {
@@ -99,13 +98,11 @@ body.theme-dark .article-main-image {
   width: 100%;
   height: auto;
   display: block;
-  filter: grayscale(100%) contrast(1.1);
-  mix-blend-mode: multiply;
+  filter: contrast(1.1);
 }
 
 body.theme-dark .schematic-img {
-  filter: grayscale(100%) invert(1) contrast(0.9) brightness(1.2);
-  mix-blend-mode: screen;
+  filter: invert(1) contrast(0.9) brightness(1.2);
 }
 
 .image-caption {
@@ -141,6 +138,8 @@ body.theme-dark .schematic-img {
 }
 
 .article-list-section {
+  display: flow-root;
+  overflow: hidden; /* Extra safety for BFC */
   break-inside: avoid;
   margin: 20px 0;
   padding: 16px;

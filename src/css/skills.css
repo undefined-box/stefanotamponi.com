@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   gap: 0 8px;
-  margin: 0 0 8px 0;
+  margin: 12px 0 8px 0;
   width: 100%;
   border-top: 2px solid var(--rule);
   border-bottom: 2px solid var(--rule);
@@ -13,6 +13,22 @@
   min-height: 38px;
   line-height: 1.2;
   text-align: center;
+}
+
+.skills-index-label-inline {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  padding: 0 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
 }
 
 .skills-line-item {
@@ -26,12 +42,12 @@
   text-transform: uppercase;
   background: none;
   padding: 0 1px;
-  user-select: text;
+  user-select: none;
   line-height: 1.2;
   flex: 0 0 auto;
   text-align: center;
   cursor: pointer;
-  transition: color 0.18s;
+  transition: all 0.2s ease;
   align-self: center;
   height: 100%;
   display: flex;
@@ -43,12 +59,20 @@
 
 .skills-line-item span {
   padding: 2px 4px;
+  border-bottom: 1px dashed transparent;
+  transition: all 0.2s ease;
+}
+
+.skills-line-item:hover span {
+  border-bottom-color: var(--ink);
+  opacity: 0.8;
 }
 
 .skills-line-item.active span {
   background-color: var(--ink);
   color: var(--bg);
   border-radius: 4px;
+  border-bottom-color: transparent;
 }
 
 .skills-line-item::after {

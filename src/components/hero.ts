@@ -49,11 +49,12 @@ export function createHero(data: AppData) {
         <span class="featured-label">Latest Project</span>
         <button class="featured-project-box" type="button" id="nav-cameraberry">
           <h2 class="featured-title">Cameraberry 3</h2>
-          <p class="featured-desc">A modern DIY retro camera exploring technical autonomy. <span class="read-more">View project →</span></p>
+          <p class="featured-desc">A modern retro camera, fully designed and built from the ground up as a solo endeavor. <span class="read-more">View project →</span></p>
         </button>
       </div>
 
       <div class="skills-line-separator">
+        <span class="skills-index-label-inline">Click for Details</span>
         ${skillsHTML}
       </div>
       <div class="bio" id="bio-text"><div id="bio-content" aria-live="polite"></div></div>

@@ -4,9 +4,9 @@
     "title": "Cameraberry 3",
     "subtitle": "A MODERN DIY RETRO CAMERA",
     "mainImage": {
-      "src": "assets/cameraberry3.png",
+      "src": "assets/cameraberry3b.png",
       "alt": "Cameraberry 3 Schematic",
-      "caption": "Fig 1.1: Schematic of the Cameraberry 3 final version."
+      "caption": "Fig 1.1: Schematic of the final Cameraberry 3 version."
     },
     "components": [
       "Raspberry Pi 3 Model B+",
@@ -21,12 +21,16 @@
     "sections": [
       {
         "title": "A Statement of Personality",
-        "content": "In an era of mass-produced, powerful, and ready-to-use imaging devices, the Cameraberry project emerges as a statement of technical personality. The third iteration of this series, documented here, stands as a monument to the art of DIY electronics and retro-inspired design.",
+        "content": "In an era of mass-produced, powerful, and ready-to-use imaging devices, the Cameraberry project emerges as a statement of technical personality. Entirely conceived and built as a solo endeavor, this project was born from the desire to bridge the gap between digital code and physical reality. It served as a personal playground to experiment with a diverse tech stack while working directly with the hardware, demonstrating that sophisticated tools can be built from the ground up with enough curiosity and persistent debugging.",
         "isLead": true
       },
       {
         "title": "Beyond a Simple Camera",
-        "content": "The Cameraberry 3 is not merely a camera; it is a surprisingly powerful computer built for deep experimentation, merged with the soul of an instant camera. Utilizing a custom-designed chassis and incorporating a thermal printer, it bridges the gap between raw hardware components and sophisticated software capabilities."
+        "content": "The Cameraberry 3 is not merely a camera; it is a surprisingly powerful computer designed for deep experimentation, merged with the soul of an instant camera. Utilizing a custom-designed chassis and incorporating a thermal printer, it bridges the gap between raw hardware components and sophisticated software capabilities."
+      },
+      {
+        "title": "The Design Process",
+        "content": "The physical form of the Cameraberry 3 was no easy feat. The chassis design required countless iterations and precise measurements of every internal component. After initial, cumbersome attempts with Fusion360, I found my stride by switching to OpenSCAD. By pairing code-based modeling with the power of LLM-assisted code, I was able to programmatically define the geometry and refine the case until it met the project's rugged, functional requirements."
       },
       {
         "title": "Technical Backbone",
@@ -34,7 +38,7 @@
       },
       {
         "title": "The Backend Ecosystem",
-        "content": "The dedicated backend infrastructure deserves a special mention: it is powered by two additional Raspberry Pi 5 boards. One functions as a secure internet gateway, hosting the web server and remote control services plus an n8n instance, while the second is overclocked to 3GHz to handle the demanding LLM and YOLO processes—all seamlessly and securely integrated into a unified ecosystem."
+        "content": "The dedicated backend infrastructure deserves a special mention: it is powered by two additional Raspberry Pi 5 boards. One functions as a secure internet gateway, hosting the web server and remote control services plus an n8n instance, while the second is overclocked to 3GHz to handle demanding LLM and YOLO processes—all seamlessly and securely integrated into a unified ecosystem."
       },
       {
         "title": "Intelligent Processing",
@@ -46,12 +50,18 @@
       }
     ],
     "gallery": [
-      { "src": "assets/cameraberry3.png", "title": "Frontal View", "desc": "The cameraberry 3 in all of its glory." },
-      { "src": "assets/cameraberry3.png", "title": "Internal View", "desc": "Detailed look at the Raspberry Pi 3 B+ integration and spaghetti wiring." },
-      { "src": "assets/cameraberry3.png", "title": "Settings View", "desc": "The settings menu for preset selections and other. The menu is designed to cycle through options." },
-      { "src": "assets/cameraberry3.png", "title": "Preview Mode", "desc": "Real time preview of the image being captured." },
-      { "src": "assets/cameraberry3.png", "title": "Remote Mode", "desc": "Interface for controlling the camera via web dashboard." },
-      { "src": "assets/cameraberry3.png", "title": "Example Photo", "desc": "A sample shot - the image is processed locally from the Raspberry Pi 3 B+ for brightness and color adjustments, then sent to the server which processes it for further analysis and captioning." }
+      { "src": "assets/cameraberry_front.png", "title": "Cameraberry 3 - Front View", "desc": "The final design of the Cameraberry 3, showcasing its rugged and functional aesthetic." },
+      { "src": "assets/cameraberry_back.png", "title": "Cameraberry 3 - Rear View", "desc": "The back of the device, highlighting the integrated display and controls." },
+      { "src": "assets/preview_mode.jpg", "title": "Live Preview Mode", "desc": "Real-time preview of the image being captured, providing immediate visual feedback." },
+      { "src": "assets/settings_mode.jpg", "title": "Configuration Interface", "desc": "The settings menu allows users to cycle through presets and configure system parameters directly on the device." },
+      { "src": "assets/remote_view.png", "title": "Remote Dashboard", "desc": "The web-based interface for remote camera control, enabling wireless capture and full system management from any browser." },
+      { "src": "assets/remote_scan_view.png", "title": "Intelligent Scan Mode", "desc": "Scan mode in action, performing real-time object recognition via YOLO. A colleague assists with the demonstration to showcase the tracking capabilities." },
+      { "src": "assets/cameraberry3.png", "title": "The Final Result", "desc": "A sample output. The image is processed locally for brightness and color before being sent to the server for AI-powered analysis and descriptive captioning." },
+      { "src": "assets/exploded_front.png", "title": "SCAD Exploded View (front)", "desc": "The final 3D model generated via OpenSCAD using LLM-assisted, code-based modeling. The power button was custom 3D-printed to leverage a recycled power bank while maintaining a unique design." },
+      { "src": "assets/exploded_back.png", "title": "SCAD Exploded View (back)", "desc": "Rear exploded view. Multiple iterations were required to optimize internal space and thermal management for the Raspberry Pi 3 B+. It features a dedicated aperture for the battery indicator." },
+      { "src": "assets/cameraberry1.jpg", "title": "The Origins: Cameraberry 1", "desc": "The original prototype. This early version lacked a display and a physical power button, making safe shutdowns impossible without disconnecting the power supply. The initial 'tower' design was eventually abandoned in favor of a more usable form factor." },
+      { "src": "assets/2_vs_1.jpg", "title": "Evolution: v1 vs v2", "desc": "A comparison between the first and second iterations. The second version introduced status LEDs and a more refined design. The signature horizontal white band was a happy accident caused by running out of filament during printing, then intentionally kept for the following models." },
+      { "src": "assets/cameraberry2_internal.jpg", "title": "Internal Engineering", "desc": "Internal view of the Cameraberry 2. This version laid the groundwork for the current iteration, with optimized component placement and a storage slot for backup thermal paper. The 'spaghetti' cable management system ensures a clean and organized interior. I promise." }
     ]
   }
 }
