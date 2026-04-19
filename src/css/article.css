@@ -33,10 +33,14 @@
   width: 100%;
 }
 
+.article-container .typography-card {
+  padding-bottom: 0;
+}
+
 .article-nav {
   width: 100%;
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 1em;
 }
 
 .article-back-link {
@@ -184,7 +188,7 @@ body.theme-dark .invert-dark {
   line-height: 1;
   font-weight: 700;
   margin-right: 8px;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'JetBrains Mono', monospace;
   color: var(--ink);
 }
 
