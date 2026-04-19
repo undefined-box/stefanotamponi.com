@@ -1,6 +1,8 @@
 :root {
   --bg: #e6e7e9;
+  --bg-rgb: 230, 231, 233;
   --ink: #073f37;
+  --ink-rgb: 7, 63, 55;
   --muted: #6b6b6b;
   --rule: rgba(24, 25, 26, 0.13);
   --accent: #5a5a5a;
@@ -9,7 +11,9 @@
 
 body.theme-dark {
   --bg: #232426;
+  --bg-rgb: 35, 36, 38;
   --ink: #e6e7e9;
+  --ink-rgb: 230, 231, 233;
   --muted: #b0b3b8;
   --rule: rgba(230, 231, 233, 0.10);
   --accent: #b0b3b8;

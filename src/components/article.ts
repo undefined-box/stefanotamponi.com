@@ -137,6 +137,7 @@ export function createArticle(article: Article, data: AppData, onBack: () => voi
   // Modal Logic
   const modal = el.querySelector('#article-modal') as HTMLElement;
   const modalImg = el.querySelector('#modal-image') as HTMLImageElement;
+  const modalWrapper = el.querySelector('.modal-image-wrapper') as HTMLElement;
   const modalTitle = el.querySelector('#modal-title') as HTMLElement;
   const modalDesc = el.querySelector('#modal-desc') as HTMLElement;
   const closeModal = el.querySelector('#close-modal');
@@ -148,10 +149,24 @@ export function createArticle(article: Article, data: AppData, onBack: () => voi
   const updateModal = (index: number) => {
     currentIndex = index;
     const imgData = article.gallery[currentIndex];
+    
+    // Set loading state
+    modalWrapper.classList.add('loading');
+    
     modalImg.src = imgData.src;
     modalTitle.textContent = imgData.title;
     modalDesc.textContent = imgData.desc;
   };
+
+  // Remove loading state when image is loaded
+  modalImg.addEventListener('load', () => {
+    modalWrapper.classList.remove('loading');
+  });
+
+  // Also remove loading if there's an error
+  modalImg.addEventListener('error', () => {
+    modalWrapper.classList.remove('loading');
+  });
 
   el.querySelectorAll('.modal-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {

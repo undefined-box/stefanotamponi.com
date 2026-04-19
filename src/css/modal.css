@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.94);
+  background: rgba(var(--bg-rgb, 255, 255, 255), 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,11 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+}
+
+body.theme-dark .modal-overlay {
+  background: rgba(var(--bg-rgb, 10, 11, 12), 0.92);
 }
 
 .modal-overlay.visible {
@@ -35,7 +39,7 @@
 }
 
 .modal-click-zone:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(var(--ink-rgb, 0, 0, 0), 0.03);
 }
 
 .modal-click-zone.left { left: 0; }
@@ -43,7 +47,7 @@
 
 .modal-nav-btn {
   font-family: 'JetBrains Mono', monospace;
-  color: #fff;
+  color: var(--ink);
   font-size: 24px;
   font-weight: 700;
   opacity: 0.4;
@@ -68,25 +72,56 @@
   align-items: center;
   gap: 32px;
   z-index: 5;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+body.theme-dark .modal-content {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
 .modal-image-wrapper {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   background: #fff;
   padding: 8px;
   border: 1px solid var(--rule);
+  min-height: 200px;
 }
 
 body.theme-dark .modal-image-wrapper {
   background: #1a1b1d;
 }
 
+.modal-image-wrapper.loading #modal-image {
+  opacity: 0;
+}
+
+.modal-image-wrapper.loading::after {
+  content: "[ LOADING... ]";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
 #modal-image {
   max-width: 100%;
   max-height: 65vh;
   object-fit: contain;
+  transition: opacity 0.3s ease;
 }
 
 .modal-info {
@@ -120,7 +155,7 @@ body.theme-dark .modal-image-wrapper {
   right: 20px;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--ink);
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   font-weight: 700;
