@@ -41,6 +41,7 @@ export interface Article {
   id: string;
   title: string;
   subtitle: string;
+  description: string;
   mainImage: {
     src: string;
     alt: string;

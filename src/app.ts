@@ -43,7 +43,7 @@ export class App {
     uiElements.forEach(el => app.appendChild(el))
 
     if (view === 'home') {
-      const hero = createHero(this.data)
+      const hero = createHero(this.data, this.articles)
       app.appendChild(hero)
       
       // Re-setup interactions for hero

@@ -1,4 +1,4 @@
-import { AppData } from '../types';
+import { AppData, ArticlesData } from '../types';
 
 export function renderTextWithLinks(text: string): (Text | HTMLAnchorElement)[] {
   const nodes: (Text | HTMLAnchorElement)[] = [];
@@ -28,7 +28,7 @@ export function renderTextWithLinks(text: string): (Text | HTMLAnchorElement)[] 
   return nodes;
 }
 
-export function createHero(data: AppData) {
+export function createHero(data: AppData, articles: ArticlesData) {
   const el = document.createElement('section')
   el.className = 'hero reveal'
   
@@ -39,6 +39,33 @@ export function createHero(data: AppData) {
   const linksHTML = data.links
     .map(link => `<a class="link" href="${link.href}" aria-label="${link.ariaLabel}">${link.label}</a>`)
     .join('')
+
+  const articlesList = Object.values(articles);
+  const firstArticle = articlesList[0];
+  const restArticles = articlesList.slice(1);
+
+  const featuredArticlesHTML = `
+    <button class="featured-project-box" type="button" id="nav-${firstArticle.id}">
+      <h2 class="featured-title">${firstArticle.title}</h2>
+      <p class="featured-desc">${firstArticle.description} <span class="read-more">View project →</span></p>
+    </button>
+  `;
+
+  let moreProjectsHTML = '';
+  if (restArticles.length > 0) {
+    const otherProjectsItems = restArticles.map(article => `
+      <button class="index-link" type="button" id="nav-${article.id}">
+        ${article.title}
+      </button>
+    `).join('<span style="margin: 0 8px; opacity: 0.5;">·</span>');
+
+    moreProjectsHTML = `
+      <div class="previous-projects-index">
+        <span class="index-label">Previous project${restArticles.length > 1 ? 's' : ''}:</span>
+        ${otherProjectsItems}
+      </div>
+    `;
+  }
   
   el.innerHTML = `
     <div class="typography-card">
@@ -47,10 +74,10 @@ export function createHero(data: AppData) {
       
       <div class="featured-project-container">
         <span class="featured-label">Latest Project</span>
-        <button class="featured-project-box" type="button" id="nav-cameraberry">
-          <h2 class="featured-title">Cameraberry 3</h2>
-          <p class="featured-desc">A modern retro camera, fully designed and built from the ground up as a solo endeavor. <span class="read-more">View project →</span></p>
-        </button>
+        <div class="featured-project-list">
+          ${featuredArticlesHTML}
+        </div>
+        ${moreProjectsHTML}
       </div>
 
       <div class="skills-line-separator">
@@ -69,8 +96,10 @@ export function createHero(data: AppData) {
   bioNodes.forEach(node => bioContent.appendChild(node));
 
   // Add listener for the new project button
-  el.querySelector('#nav-cameraberry')?.addEventListener('click', () => {
-    window.location.hash = '#cameraberry';
+  articlesList.forEach(article => {
+    el.querySelector(`#nav-${article.id}`)?.addEventListener('click', () => {
+      window.location.hash = `#${article.id}`;
+    });
   });
 
   return el

@@ -1,8 +1,83 @@
 {
+  "sparkberry": {
+    "id": "sparkberry",
+    "title": "Sparkberry",
+    "subtitle": "AI-Powered Catbot",
+    "description": "A compact 3D-printed AI catbot designed to bring an AI personality into the physical world.",
+    "mainImage": {
+      "src": "assets/sparkberry_front.png",
+      "alt": "SparkBerry Catbot chassis",
+      "caption": "Fig 2.1: The compact 3D-printed chassis designed to house SparkBerry's electronics and drive system.",
+      "shouldInvert": false
+    },
+    "secondaryImage": {
+      "src": "assets/sparkberry_internal.jpg",
+      "alt": "SparkBerry head design",
+      "caption": "Fig 2.2: The modular front assembly, designed around the expressive OLED display and the compact electronics enclosure.",
+      "shouldInvert": true
+    },
+    "components": [
+      "ESP32 DevKit V1",
+      "2x TT Gear Motors",
+      "DRV8833 Dual H-Bridge Motor Driver",
+      "1.5\" 128x128 OLED Display",
+      "INMP441 I2S Digital Microphone",
+      "Dual 18650 Li-ion Battery Pack",
+      "3D Printed Modular Chassis"
+    ],
+    "sections": [
+      {
+        "title": "A Cat-Sized Interface for AI",
+        "content": "SparkBerry is a small interactive robot designed to bring an AI personality into the physical world. Built at roughly the size of a cat, it combines a mobile two-wheel platform with a swiveling head, expressive eyes, and a microphone for natural interaction. The result is a desk companion that does not simply answer requests: it reacts, moves, looks around, gets sleepy, and makes the invisible logic of an AI system feel tangible.",
+        "isLead": true
+      },
+      {
+        "title": "More Than a Desk Toy",
+        "content": "The project was conceived as an autonomous bridge between software intelligence and physical behavior. Its ESP32 handles the real-time work that must remain immediate and reliable—motor control, display animation, audio sampling, and WebSocket communication—while the heavier language processing runs remotely through a Raspberry Pi 5 AI core. This separation keeps the robot responsive without sacrificing the flexibility of a conversational model."
+      },
+      {
+        "title": "The Mechanical Design",
+        "content": "SparkBerry's body is a modular 3D-printed enclosure developed around the constraints of its electronics. The base accommodates the dual 18650 battery holder and the two classic yellow TT gear motors, while the upper shell protects the ESP32 and motor driver. The front display gives the robot a recognizable face without adding unnecessary mechanical complexity. Designing around real cable clearances, and serviceability turned the chassis into an engineering problem rather than a decorative shell."
+      },
+      {
+        "title": "A Face Made of Pixels",
+        "content": "The 128x128 OLED is the emotional center of SparkBerry. Instead of relying on a camera or a collection of moving parts, the robot communicates through animated eyes and simple visual states. It can blink, sleep, look left or right, and express happiness, curiosity, dizziness, anger, or excitement. A technical debug mode can also expose Wi-Fi information, signal strength, IP address, microphone volume, and the current emotion, making the small display useful during development as well as during normal interaction."
+      },
+      {
+        "title": "Movement with Personality",
+        "content": "The two motor-driven wheels give SparkBerry a compact differential-drive platform capable of moving forward and backward, turning in place, and executing short choreographed sequences. The command registry maps high-level intentions such as approach, spin, look around, dance, and anger into timed motion and expression combinations. A simple request can therefore become a complete physical reaction: the robot can move independently and change its eyes as one coordinated action."
+      },
+      {
+        "title": "Listening Locally",
+        "content": "An INMP441 digital microphone feeds audio to the ESP32 through I2S, where volume and activity are monitored continuously. Recognized speech is handled by a local Vosk-based STT service, with a constrained vocabulary for common commands and a fallback to open-vocabulary recognition. Frequently used triggers are matched locally first for near-instant responses: calling SparkBerry closer, asking it to spin or dance, telling it to sleep, or switching between animated eyes and technical text does not require waiting for the language model."
+      },
+      {
+        "title": "The 'Turberry' Connection",
+        "content": "When a phrase is not a direct local trigger, the backend forwards it to Turberry, the Raspberry Pi 5 AI core of its ecosystem. Turberry is instructed to interpret the user's intent and return a strict JSON command containing both an action and the catbot's speech. The backend validates that action against the command registry, translates it into movement and emotion, and safely falls back to a happy idle state if the model is unavailable, times out after a few seconds, or returns an invalid response. This keeps the personality expressive while ensuring that unreliable network or AI behavior cannot leave the robot in an undefined state."
+      },
+      {
+        "title": "A Robot That Knows When to Rest",
+        "content": "SparkBerry includes a small but deliberate layer of autonomy. After five minutes without meaningful sound or interaction, it enters an animated sleeping state with closed, breathing eyes. A new sound above the configured threshold or a voice command wakes it again, with a short cooldown to avoid accidental oscillation. The sleep behavior makes the robot feel less like a device that is always waiting and more like a companion with its own quiet rhythm."
+      },
+      {
+        "title": "A Personal Experiment in Embodied AI",
+        "content": "SparkBerry brings together embedded C++, a Node.js WebSocket backend, local speech recognition, remote language models, and parametric 3D design in one small platform. Its value is not only in the individual features, but in the way they reinforce one another: software commands become motion, language becomes expression, and a tiny printed chassis becomes a physical endpoint for an entire self-hosted AI ecosystem."
+      }
+    ],
+    "gallery": [
+      { "src": "assets/sparkberry_front.png", "title": "SparkBerry - Front View", "desc": "The compact cat-sized robot, with its expressive OLED face and two-wheel drive platform." },
+      { "src": "assets/sparkberry_back.png", "title": "SparkBerry - Rear View", "desc": "The rear of the robot, showing the compact enclosure and the electronics layout." },
+      { "src": "assets/sparkberry_display.jpg", "title": "Expressive Display", "desc": "The OLED face renders animated eyes and emotional states that give SparkBerry a recognizable personality." },
+      { "src": "assets/sparkberry_internal.jpg", "title": "Internal Engineering", "desc": "The internal arrangement of the ESP32, motor driver, battery pack, microphone, and classic yellow TT motors." },
+      { "src": "assets/sparkberry_chassis.png", "title": "Chassis Iteration", "desc": "The modular 3D-printed enclosure refined around component clearances, cable routing, and serviceability." },
+      { "src": "assets/sparkberry_voice.jpg", "title": "Voice Interaction", "desc": "SparkBerry listens through its digital microphone and turns local voice commands or AI responses into movement and expression." }
+    ]
+  },
   "cameraberry": {
     "id": "cameraberry",
     "title": "Cameraberry 3",
     "subtitle": "A MODERN DIY RETRO CAMERA",
+    "description": "A modern retro camera, fully designed and built from the ground up as a solo endeavor.",
     "mainImage": {
       "src": "assets/cameraberry_project.png",
       "alt": "Cameraberry 3 Schematic",
