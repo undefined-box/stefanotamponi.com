@@ -5,7 +5,7 @@
     "subtitle": "AI-Powered Catbot",
     "description": "A compact 3D-printed AI catbot designed to bring an AI personality into the physical world.",
     "mainImage": {
-      "src": "assets/sparkberry/sparkberry_front.png",
+      "src": "assets/sparkberry/sparkberry_blueprint.png",
       "alt": "SparkBerry Catbot chassis",
       "caption": "Fig 2.1: Schematic of the final Sparkberry version.",
       "shouldInvert": false
@@ -66,34 +66,29 @@
     ],
     "gallery": [
       {
-        "src": "assets/sparkberry/sparkberry_front.png",
+        "src": "assets/sparkberry/sparkberry_front.jpg",
         "title": "SparkBerry - Front View",
         "desc": "The compact cat-sized robot, with its expressive OLED face and two-wheel drive platform."
       },
       {
-        "src": "assets/sparkberry/sparkberry_back.png",
-        "title": "SparkBerry - Rear View",
-        "desc": "The rear of the robot, showing the compact enclosure and the electronics layout."
+        "src": "assets/sparkberry/sparkberry_side.jpg",
+        "title": "SparkBerry - Side View",
+        "desc": "The side of the robot, showing it's beautiful tail/power switch."
       },
       {
-        "src": "assets/sparkberry/sparkberry_display.jpg",
+        "src": "assets/sparkberry/sparkberry_display.png",
         "title": "Expressive Display",
-        "desc": "The OLED face renders animated eyes and emotional states that give SparkBerry a recognizable personality."
+        "desc": "The OLED face renders animated eyes and emotional states; we know that cats like to sleep."
       },
       {
-        "src": "assets/sparkberry/sparkberry_internal.jpg",
+        "src": "assets/sparkberry/sparkberry_internals.jpg",
         "title": "Internal Engineering",
-        "desc": "The internal arrangement of the ESP32, motor driver, battery pack, microphone, and classic yellow TT motors."
+        "desc": "The internal arrangement of the ESP32, motor driver, battery pack, microphone, and a tangle of jumper wires."
       },
       {
-        "src": "assets/sparkberry/sparkberry_chassis.png",
-        "title": "Chassis Iteration",
-        "desc": "The modular 3D-printed enclosure refined around component clearances, cable routing, and serviceability."
-      },
-      {
-        "src": "assets/sparkberry/sparkberry_voice.jpg",
-        "title": "Voice Interaction",
-        "desc": "SparkBerry listens through its digital microphone and turns local voice commands or AI responses into movement and expression."
+        "src": "assets/sparkberry/sparkberry_debug.png",
+        "title": "Voice Interaction & Debug Dashboard",
+        "desc": "SparkBerry listens through its digital microphone and turns local voice commands or AI responses into movement and expression. A remote debug dashboard allows for monitoring of Spark microphone volume, motor speeds, and the current emotional state of the robot."
       }
     ]
   },
