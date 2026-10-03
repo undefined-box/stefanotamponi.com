@@ -1,4 +1,5 @@
 import { Article, AppData } from '../types';
+import { createSkillMarqueeHTML } from './skillMarquee';
 
 export function createArticle(article: Article, data: AppData, onBack: () => void) {
   const el = document.createElement('section');
@@ -47,6 +48,7 @@ export function createArticle(article: Article, data: AppData, onBack: () => voi
       <header class="typography-card">
         <h1 class="display" id="article-home-link" style="cursor: pointer;">${data.personalInfo.name}</h1>
         <p class="subtitle">${data.personalInfo.title} — ${data.personalInfo.location}</p>
+        ${createSkillMarqueeHTML(data)}
       </header>
 
       <div class="article-nav">

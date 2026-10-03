@@ -33,7 +33,7 @@ export function setupSkillInteractions(data: AppData) {
   const displayName = document.querySelector('.display') as HTMLElement
   let animationTimeout: number;
 
-  const handleSkillClick = (newContent: string) => {
+  const handleSkillClick = (newContent: string, items: string[] = []) => {
     clearTimeout(animationTimeout);
 
     const existingSkeleton = bio.querySelector('.skeleton-container');
@@ -56,6 +56,18 @@ export function setupSkillInteractions(data: AppData) {
         }
       });
       bioContent.appendChild(backLink);
+    }
+
+    if (items.length > 0) {
+      const itemList = document.createElement('div');
+      itemList.className = 'skill-technology-list';
+      itemList.setAttribute('aria-label', 'Skills and technologies');
+      items.forEach(item => {
+        const itemElement = document.createElement('span');
+        itemElement.textContent = item;
+        itemList.appendChild(itemElement);
+      });
+      bioContent.appendChild(itemList);
     }
 
     const nodes = renderTextWithLinks(newContent);
@@ -104,7 +116,8 @@ export function setupSkillInteractions(data: AppData) {
       
       const skillName = skill.textContent!.trim();
       const desc = data.skillDescriptions[skillName] || originalBio;
-      handleSkillClick(desc);
+      const items = data.skillGroups.find(group => group.name === skillName)?.items || [];
+      handleSkillClick(desc, items);
     };
 
     skill.addEventListener('click', activateSkill);

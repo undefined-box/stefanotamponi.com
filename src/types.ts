@@ -12,10 +12,16 @@ export interface Link {
   ariaLabel: string
 }
 
+export interface SkillGroup {
+  name: string
+  items?: string[]
+}
+
 export interface AppData {
   personalInfo: PersonalInfo
   skills: string[]
   skillDescriptions: Record<string, string>
+  skillGroups: SkillGroup[]
   links: Link[]
   theme: {
     toggleLabels: {

@@ -1,4 +1,5 @@
 import { AppData, ArticlesData } from '../types';
+import { createSkillMarqueeHTML } from './skillMarquee';
 
 export function renderTextWithLinks(text: string): (Text | HTMLAnchorElement)[] {
   const nodes: (Text | HTMLAnchorElement)[] = [];
@@ -35,7 +36,7 @@ export function createHero(data: AppData, articles: ArticlesData) {
   const skillsHTML = data.skills
     .map(skill => `<button class="skills-line-item" type="button"><span>${skill}</span></button>`)
     .join('')
-  
+
   const linksHTML = data.links
     .map(link => `<a class="link" href="${link.href}" aria-label="${link.ariaLabel}">${link.label}</a>`)
     .join('')
@@ -71,7 +72,8 @@ export function createHero(data: AppData, articles: ArticlesData) {
     <div class="typography-card">
       <h1 class="display">${data.personalInfo.name}</h1>
       <p class="subtitle">${data.personalInfo.title} — ${data.personalInfo.location}</p>
-      
+      ${createSkillMarqueeHTML(data)}
+
       <div class="featured-project-container">
         <span class="featured-label">Latest Project</span>
         <div class="featured-project-list">
