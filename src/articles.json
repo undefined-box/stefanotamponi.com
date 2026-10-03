@@ -271,6 +271,11 @@
         "desc": "The compact cat-shaped form and the expressive OLED face that define the robot's character. And a curious cat, of course."
       },
       {
+        "src": "assets/miciobot/miciobot_expressions.gif",
+        "title": "Animated Eye Expressions",
+        "desc": "The OLED cycles through Miciobot's expressive eye states, bringing its small personality to life."
+      },
+      {
         "src": "assets/miciobot/miciobot_back.jpg",
         "title": "Rear View",
         "desc": "The back of Miciobot, with its beautiful serial tail. The prototype's cat-inspired paint finish was not carried over to the final design, though it was a nice touch."
