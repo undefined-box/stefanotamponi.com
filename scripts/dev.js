@@ -24,6 +24,11 @@ function copyStatics() {
     })
   }
 
+  const srcLlms = path.join(__dirname, '..', 'llms.txt')
+  if (fs.existsSync(srcLlms)) {
+    fs.copyFileSync(srcLlms, path.join(outdir, 'llms.txt'))
+  }
+
   if (fs.existsSync(srcAssets)) {
     if (!fs.existsSync(destAssets)) fs.mkdirSync(destAssets, { recursive: true })
     fs.cpSync(srcAssets, destAssets, { recursive: true })

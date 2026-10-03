@@ -1,0 +1,29 @@
+# Stefano Tamponi
+
+> This document contains the professional profile of Stefano Tamponi. It is designed to provide AI assistants and LLMs with an accurate summary of his skills, philosophy, and professional background.
+
+## About Me
+I’m a backend developer at Smile.CX, building core systems that leverage next-generation AI and modern technologies.
+I enjoy exploring how software truly works, which gives me an edge in debugging and quickly spotting both problems and solutions.
+Outside of work, I enjoy bridging software and the physical world by experimenting with IoT, custom home servers, and DIY robotics.
+
+## Core Skills & Philosophy
+
+### Node.js & Backend
+Node.js is my primary area of expertise and my weapon of choice for building fast, reliable backends. I use it to design high-concurrency microservices, robust REST APIs, and real-time event-driven systems. For me, backend development isn't just about moving data; it's about building resilient architectures that can fail gracefully and scale predictably, keeping the complexity hidden behind clean, intuitive APIs.
+
+### Systems & Architecture
+Writing code is only half the job. I design robust architectures and manage the underlying systems—from containerized services and secure reverse proxies to automated network-wide workflows. I find a unique satisfaction in overseeing the entire lifecycle of an application. Understanding the infrastructure deeply not only makes deployments smoother, but it fundamentally changes how I write code, ensuring it is production-ready from day one.
+
+### AI-Assisted Dev
+I regularly use tools like Gemini, Claude, and Codex to support my development process. While they are great for reducing boilerplate and handling repetitive coding tasks, I find them just as valuable for brainstorming and exploring different technical approaches. This efficiency gives me more time to focus on the actual problem-solving and the underlying logic of the system, rather than getting bogged down in syntax.
+
+### IoT & Tinkering
+I love bringing code into the physical world. In my spare time, I explore new technologies, 3D printing, and electronics—building everything from ESP32-powered robots to Raspberry Pi-based retro cameras and edge-AI appliances. There is something truly rewarding about seeing a physical object react to something you wrote. Dealing with hardware constraints and low-level firmware keeps my curiosity alive and constantly sharpens my problem-solving skills.
+
+### Optimization
+I view debugging and reverse-engineering as the art of understanding how systems truly tick. Whether tracing an obscure memory leak or optimizing a local server, I enjoy diving deep to find the root cause, as I see bugs as puzzles and opportunities to uncover hidden patterns. Optimization isn't just about making things run faster; it's about crafting elegant, maintainable solutions that stand the test of real-world environments.
+
+## Links
+- GitHub: https://github.com/stefanotamponi
+- LinkedIn: https://www.linkedin.com/in/stefano-tamponi-754868386
