@@ -26,9 +26,7 @@ function copyStatics() {
 
   if (fs.existsSync(srcAssets)) {
     if (!fs.existsSync(destAssets)) fs.mkdirSync(destAssets, { recursive: true })
-    fs.readdirSync(srcAssets).forEach(file => {
-      fs.copyFileSync(path.join(srcAssets, file), path.join(destAssets, file))
-    })
+    fs.cpSync(srcAssets, destAssets, { recursive: true })
   }
 
   if (fs.existsSync(srcSounds)) {
