@@ -14,7 +14,7 @@
     "Optimization"
   ],
   "skillDescriptions": {
-    "Backend": "Node.js is my primary area of expertise and my weapon of choice for building fast, reliable backends. I use it to design high-concurrency microservices, robust REST APIs, and real-time event-driven systems. For me, backend development isn't just about moving data; it's about building resilient architectures that can fail gracefully and scale predictably, keeping the complexity hidden behind clean, intuitive APIs.",
+    "Backend": "Node.js is my primary area of expertise and my weapon of choice for building fast, reliable backends. I use it with Express and Socket.IO to design high-concurrency services, robust REST APIs, and real-time systems. I also work extensively with MongoDB, writing complex queries and aggregation pipelines and tuning indexes for performance. My focus is on resilient systems that perform predictably.",
     "UI": "I enjoy creating interfaces that feel clean and intuitive, or more distinctive when the project calls for it. Typography is a big part of that process: I’m especially drawn to large, expressive type that gives a page character while keeping it clear and easy to use. This portfolio is one example of the balance I like to strike.",
     "Systems & Architecture": "Writing code is only half the job. I design robust architectures and manage the underlying systems—from containerized services and secure reverse proxies to automated network-wide workflows. I find a unique satisfaction in overseeing the entire lifecycle of an application. Understanding the infrastructure deeply not only makes deployments smoother, but it fundamentally changes how I write code, ensuring it is production-ready from day one.",
     "AI": "I regularly use tools like Gemini, Claude, and Codex to support my development process. While they are great for reducing boilerplate and handling repetitive coding tasks, I find them just as valuable for brainstorming and exploring different technical approaches. This efficiency gives me more time to focus on the actual problem-solving and the underlying logic of the system, rather than getting bogged down in syntax.",
@@ -24,7 +24,7 @@
   "skillGroups": [
     {
       "name": "Backend",
-      "items": ["Node.js", "Express", "Socket.IO", "WebSockets"]
+      "items": ["Node.js", "Express", "Socket.IO", "WebSockets", "MongoDB", "AWS DocumentDB"]
     },
     {
       "name": "UI",
@@ -40,7 +40,8 @@
     },
     {
       "name": "IoT & Tinkering",
-      "items": ["ESP32", "Raspberry Pi", "OpenSCAD", "3D Printing"]
+      "items": ["ESP32", "Raspberry Pi", "OpenSCAD", "3D Printing"],
+      "tickerItems": ["OpenSCAD", "3D Printing"]
     },
     {
       "name": "Optimization"

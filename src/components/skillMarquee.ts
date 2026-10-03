@@ -1,7 +1,7 @@
 import { AppData } from '../types';
 
 export function createSkillMarqueeHTML(data: AppData): string {
-  const allSkillItems = Array.from(new Set(data.skillGroups.flatMap(group => group.items || [])));
+  const allSkillItems = Array.from(new Set(data.skillGroups.flatMap(group => group.tickerItems ?? group.items ?? [])));
   const skillMarqueeItemsHTML = allSkillItems
     .map(item => `<span class="skill-marquee-item" role="listitem">${item}</span>`)
     .join('');

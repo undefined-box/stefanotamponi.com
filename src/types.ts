@@ -15,6 +15,7 @@ export interface Link {
 export interface SkillGroup {
   name: string
   items?: string[]
+  tickerItems?: string[]
 }
 
 export interface AppData {
