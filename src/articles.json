@@ -37,7 +37,7 @@
       },
       {
         "title": "The Mechanical Design",
-        "content": "SparkBerry's body is a modular 3D-printed enclosure developed around the constraints of its electronics. The base accommodates the dual 18650 battery holder and the microphone other than a stepdown converter; the two classic yellow TT gear motors are at the base, while the upper shell protects the ESP32 keep restrained around 25 jumper cables necessary to connect to the various components. The front display gives the robot a recognizable face without adding unnecessary mechanical complexity. Designing around real cable clearances, and serviceability turned the chassis into an engineering problem rather than a decorative shell."
+        "content": "SparkBerry's body is a modular 3D-printed enclosure designed around its electronics. The base houses the dual 18650 battery holder, microphone, and a step-down converter. The two classic yellow TT gear motors sit at the base, while the upper shell houses the ESP32 and keeps the roughly 25 jumper wires contained. The front display gives the robot a recognizable face without adding unnecessary mechanical complexity. Designing around cable clearances and serviceability turned the chassis into an engineering problem rather than a decorative shell."
       },
       {
         "title": "A Face Made of Pixels",
@@ -53,7 +53,7 @@
       },
       {
         "title": "The AI Connection",
-        "content": "When a phrase is not a direct local trigger, the backend forwards it to its backend via a secure tunnel, a Raspberry Pi 5 AI core of its ecosystem. The backend is instructed to interpret the user's intent and return a strict JSON command containing both an action and the catbot's speech. The backend validates that action against the command registry, translates it into movement and emotion, and safely falls back to a happy idle state if the model is unavailable, times out after a few seconds, or returns an invalid response. This keeps the personality expressive while ensuring that unreliable network or AI behavior cannot leave the robot in an undefined state."
+        "content": "When a phrase is not a direct local trigger, the backend forwards it through a secure tunnel to the backend running on the Raspberry Pi 5 AI core. That service interprets the user's intent and returns a strict JSON command containing an action and the catbot's speech. The backend validates the action against the command registry, translates it into movement and emotion, and safely falls back to a happy idle state if the model is unavailable, times out after a few seconds, or returns an invalid response. This keeps the personality expressive while ensuring that unreliable network or AI behavior cannot leave the robot in an undefined state."
       },
       {
         "title": "A Robot That Knows When to Rest",
@@ -73,7 +73,7 @@
       {
         "src": "assets/sparkberry/sparkberry_side.jpg",
         "title": "SparkBerry - Side View",
-        "desc": "The side of the robot, showing it's beautiful tail/power switch."
+        "desc": "The side of the robot, showing its beautiful tail/power switch."
       },
       {
         "src": "assets/sparkberry/sparkberry_display.png",
@@ -88,7 +88,7 @@
       {
         "src": "assets/sparkberry/sparkberry_debug.png",
         "title": "Voice Interaction & Debug Dashboard",
-        "desc": "SparkBerry listens through its digital microphone and turns local voice commands or AI responses into movement and expression. A remote debug dashboard allows for monitoring of Spark microphone volume, motor speeds, and the current emotional state of the robot."
+        "desc": "SparkBerry listens through its digital microphone and turns local voice commands or AI responses into movement and expression. A remote debug dashboard allows monitoring of SparkBerry's microphone volume, motor speeds, and current emotional state."
       }
     ]
   },
@@ -210,6 +210,70 @@
         "src": "assets/cameraberry/cameraberry2_internal.jpg",
         "title": "Internal Engineering",
         "desc": "Internal view of the Cameraberry 2. This version laid the groundwork for the current iteration, with optimized component placement and a storage slot for backup thermal paper. The 'spaghetti' cable management system ensures a clean and organized interior. I promise."
+      }
+    ]
+  },
+  "miciobot": {
+    "id": "miciobot",
+    "title": "Miciobot",
+    "subtitle": "A MINI DESK CAT WITH EXPRESSIVE EYES",
+    "description": "A compact 3D-printed desktop cat robot built around an ESP32-C3, a tiny OLED face, and a playful personality.",
+    "mainImage": {
+      "src": "assets/miciobot/miciobot_blueprint.jpeg",
+      "alt": "Miciobot blueprint showing front, rear, and perspective views",
+      "caption": "Fig 3.1: Schematic of the final Miciobot design. It looks less than enthusiastic here.",
+      "shouldInvert": true
+    },
+    "secondaryImage": {
+      "src": "assets/miciobot/miciobot_scad.png",
+      "alt": "Miciobot exploded chassis",
+      "caption": "Fig 3.2: Exploded view of the compact cat-shaped enclosure and its internal layout.",
+      "shouldInvert": true
+    },
+    "components": [
+      "ESP32-C3 SuperMini",
+      "0.96\" OLED Display",
+      "USB-C Power / Charging Port",
+      "3D-Printed Cat Shell",
+      "Jumper cables"
+    ],
+    "sections": [
+      {
+        "title": "A Tiny Cat with a Character",
+        "content": "Miciobot is a small desktop companion designed to turn a handful of electronics into something that feels alive. It is not a large robot or an industrial prototype: it is a compact, cat-shaped object meant to sit on a desk, blink at you and remind you that even small devices can carry personality.",
+        "isLead": true
+      },
+      {
+        "title": "Designing for Personality, Not Just Hardware",
+        "content": "The project started from a simple constraint: fit a microcontroller, a small display, a power circuit, and enough structure inside a tiny cat-like body. That meant choosing compact electronics and measuring carefully. Every millimetre mattered: the body had to be cute and functional. The result is a design that feels intentionally playful while remaining practical."
+      },
+      {
+        "title": "The 3D-Printed Shell",
+        "content": "Miciobot's case is a compact, modular enclosure built around its internal requirements. The body and head are designed as separate printed pieces to simplify assembly and serviceability, while the rounded silhouette keeps the robot recognizably feline."
+      },
+      {
+        "title": "Eyes That Speak Before Words",
+        "content": "The OLED display is the emotional center of the robot. Instead of a complex face with moving parts, the device communicates through a clear set of eye states: idle, happy, angry, sleepy, surprised, skeptical, curious, in love, or dizzy. This gives Miciobot a fast, readable visual language: its mood can change instantly and remain clear at a glance. In a compact object, expression becomes the interface."
+      },
+      {
+        "title": "A Small Computer With a Mood Engine",
+        "content": "The firmware runs an internal mood system that changes the eye animation over time. Some states are manual and reactive via serial interface, while others are generated autonomously to create a sense of life when there is no external input. This subtle behavior makes the robot feel less like a static object and more like an attentive desk companion. The system is intentionally simple, but the effect is surprisingly strong: tiny visual changes create a strong emotional impression."
+      },
+      {
+        "title": "A Personal Object That Feels Alive",
+        "content": "Miciobot sits at the intersection of physical design, embedded software, and playful interaction. It is a project about reducing complexity to the essentials: a simple body, a focused display, a few electronic components, and a strong visual personality. The result is a tiny robot that does not try to be a full autonomous system; it is instead a small, memorable companion that makes the invisible layers of engineering feel tangible and fun."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "assets/miciobot/miciobot_front.jpg",
+        "title": "Front View",
+        "desc": "The compact cat-shaped form and the expressive OLED face that define the robot's character. And a curious cat, of course."
+      },
+      {
+        "src": "assets/miciobot/miciobot_back.jpg",
+        "title": "Rear View",
+        "desc": "The back of Miciobot, with its beautiful serial tail. The prototype's cat-inspired paint finish was not carried over to the final design, though it was a nice touch."
       }
     ]
   }
