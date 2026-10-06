@@ -76,6 +76,7 @@ export class App {
   }
 
   public mount(): void {
+    document.getElementById('static-fallback-footer')?.remove()
     this.themeManager.mount()
     
     // Initial routing
