@@ -30,6 +30,14 @@ export class App {
         return
       }
     }
+
+    const projectPath = window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)
+    const projectId = projectPath?.[1]
+    if (projectId && this.articles[projectId]) {
+      this.renderView('article', projectId)
+      return
+    }
+
     this.renderView('home')
   }
 
@@ -64,10 +72,27 @@ export class App {
           })
         }
       })
+
+      hero.querySelectorAll<HTMLAnchorElement>('a[data-project-id]').forEach(link => {
+        link.addEventListener('click', event => {
+          if (event.button !== 0) return
+          event.preventDefault()
+          window.location.hash = `#${link.dataset.projectId}`
+        })
+
+        link.addEventListener('auxclick', event => {
+          if (event.button === 1) event.preventDefault()
+        })
+      })
     } else if (view === 'article' && articleId) {
       const article = this.articles[articleId]
       app.appendChild(createArticle(article, this.data, () => {
-        window.location.hash = ''
+        if (window.location.pathname !== '/') {
+          window.history.pushState(null, '', '/')
+          this.handleRouting()
+        } else {
+          window.location.hash = ''
+        }
       }))
     }
 
@@ -84,6 +109,7 @@ export class App {
 
     // Listen for hash changes
     window.addEventListener('hashchange', () => this.handleRouting())
+    window.addEventListener('popstate', () => this.handleRouting())
     
     // Handle skill separators after layout is settled
     document.fonts.ready.then(() => {

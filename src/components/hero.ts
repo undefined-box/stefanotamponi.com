@@ -46,18 +46,18 @@ export function createHero(data: AppData, articles: ArticlesData) {
   const restArticles = articlesList.slice(1);
 
   const featuredArticlesHTML = `
-    <button class="featured-project-box" type="button" id="nav-${firstArticle.id}">
+    <a class="featured-project-box" data-project-id="${firstArticle.id}" href="/projects/${encodeURIComponent(firstArticle.id)}/">
       <h2 class="featured-title">${firstArticle.title}</h2>
       <p class="featured-desc">${firstArticle.description} <span class="read-more">View project →</span></p>
-    </button>
+    </a>
   `;
 
   let moreProjectsHTML = '';
   if (restArticles.length > 0) {
     const otherProjectsItems = restArticles.map(article => `
-      <button class="index-link" type="button" id="nav-${article.id}">
+      <a class="index-link" data-project-id="${article.id}" href="/projects/${encodeURIComponent(article.id)}/">
         ${article.title}
-      </button>
+      </a>
     `).join('<span style="margin: 0 8px; opacity: 0.5;">·</span>');
 
     moreProjectsHTML = `
@@ -96,13 +96,6 @@ export function createHero(data: AppData, articles: ArticlesData) {
   const bioContent = el.querySelector('#bio-content') as HTMLElement;
   const bioNodes = renderTextWithLinks(data.personalInfo.bio);
   bioNodes.forEach(node => bioContent.appendChild(node));
-
-  // Add listener for the new project button
-  articlesList.forEach(article => {
-    el.querySelector(`#nav-${article.id}`)?.addEventListener('click', () => {
-      window.location.hash = `#${article.id}`;
-    });
-  });
 
   return el
 }

@@ -2,6 +2,7 @@ const esbuild = require('esbuild')
 const liveServer = require('live-server')
 const path = require('path')
 const fs = require('fs')
+const generateProjectPages = require('./generateProjectPages')
 
 const outdir = path.join(__dirname, '..', 'dist')
 const srcIndex = path.join(__dirname, '..', 'index.html')
@@ -29,6 +30,10 @@ function copyStatics() {
     fs.copyFileSync(srcLlms, path.join(outdir, 'llms.txt'))
   }
 
+  ;['CNAME', 'robots.txt'].forEach(file => {
+    fs.copyFileSync(path.join(__dirname, '..', file), path.join(outdir, file))
+  })
+
   if (fs.existsSync(srcAssets)) {
     if (!fs.existsSync(destAssets)) fs.mkdirSync(destAssets, { recursive: true })
     fs.cpSync(srcAssets, destAssets, { recursive: true })
@@ -43,6 +48,7 @@ function copyStatics() {
 }
 
 copyStatics()
+generateProjectPages(outdir)
 
 ;(async () => {
   try {

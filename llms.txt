@@ -30,3 +30,8 @@ I view debugging and reverse-engineering as the art of understanding how systems
 ## Links
 - GitHub: https://github.com/stefanotamponi
 - LinkedIn: https://www.linkedin.com/in/stefano-tamponi-754868386
+
+## Project Case Studies
+- Sparkberry: https://www.stefanotamponi.com/projects/sparkberry/ — An AI-powered catbot combining ESP32 firmware, a Raspberry Pi AI backend, voice interaction, and a 3D-printed chassis.
+- Cameraberry 3: https://www.stefanotamponi.com/projects/cameraberry/ — A custom Raspberry Pi camera with a thermal printer, AI-powered image processing, and a 3D-printed chassis.
+- Miciobot: https://www.stefanotamponi.com/projects/miciobot/ — A compact ESP32-C3 desk robot with an OLED face, expressive animations, and a 3D-printed shell.

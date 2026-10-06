@@ -94,6 +94,12 @@
   background: rgba(0, 0, 0, 0.01);
 }
 
+.featured-project-box:focus-visible,
+.index-link:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
 body.theme-dark .featured-project-box:hover {
   background: rgba(255, 255, 255, 0.02);
 }

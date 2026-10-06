@@ -1,6 +1,7 @@
 const esbuild = require('esbuild');
 const path = require('path');
 const fs = require('fs');
+const generateProjectPages = require('./generateProjectPages');
 
 const outdir = path.join(__dirname, '..', 'dist');
 const srcIndex = path.join(__dirname, '..', 'index.html');
@@ -28,7 +29,7 @@ if (fs.existsSync(srcLlms)) {
   fs.copyFileSync(srcLlms, path.join(outdir, 'llms.txt'));
 }
 
-['CNAME', 'robots.txt', 'sitemap.xml'].forEach(file => {
+['CNAME', 'robots.txt'].forEach(file => {
   fs.copyFileSync(path.join(__dirname, '..', file), path.join(outdir, file));
 });
 
@@ -61,5 +62,9 @@ esbuild.build({
   },
   assetNames: 'assets/[name]-[hash]',
 }).then(() => {
+  generateProjectPages(outdir);
   console.log('Build finished successfully');
-}).catch(() => process.exit(1));
+}).catch(error => {
+  console.error(error);
+  process.exit(1);
+});
