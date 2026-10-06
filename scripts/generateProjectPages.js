@@ -83,8 +83,14 @@ function renderProject(article, allArticles) {
   `).join('');
 
   const components = article.components.map(component => `<li>${escapeHtml(component)}</li>`).join('');
-  const gallery = article.gallery.map(image => `
-    <li>${renderFigure({ ...image, alt: image.title }, 'static-project-gallery-item')}</li>
+  const gallery = article.gallery.map((image, index) => `
+    <li class="gallery-index-item">
+      <a class="gallery-index-link" href="${escapeHtml(getImagePath(image))}" aria-label="Open image: ${escapeHtml(image.title)}">
+        <span class="gallery-index-number">${String(index + 1).padStart(2, '0')}</span>
+        <span class="gallery-index-title">${escapeHtml(image.title)}</span>
+      </a>
+      <p class="gallery-index-description">${escapeHtml(image.desc)}</p>
+    </li>
   `).join('');
   const relatedProjects = Object.values(allArticles)
     .filter(project => project.id !== article.id)
@@ -144,9 +150,12 @@ function renderProject(article, allArticles) {
             </div>
             <hr class="article-divider">
             <div class="article-columns">${otherSections}</div>
-            <section class="static-project-gallery" aria-labelledby="gallery-heading">
-              <h2 class="article-section-title" id="gallery-heading">Project Gallery</h2>
-              <ul class="static-project-gallery-grid">${gallery}</ul>
+            <section class="project-gallery" aria-labelledby="gallery-heading">
+              <header class="project-gallery-heading">
+                <h2 id="gallery-heading">Project Gallery</h2>
+                <span>${String(article.gallery.length).padStart(2, '0')} IMAGES / CLICK TO VIEW</span>
+              </header>
+              <ol class="gallery-index">${gallery}</ol>
             </section>
             <nav class="static-related-projects" aria-label="Other project case studies">
               <h2 class="article-section-title">More Projects</h2>

@@ -6,8 +6,13 @@ export function createArticle(article: Article, data: AppData, onBack: () => voi
   el.className = 'article-page reveal';
 
   const galleryHTML = article.gallery.map((img, index) => `
-    <button class="modal-trigger" data-index="${index}">${img.title}</button>
-  `).join('<span class="gallery-separator">/</span>');
+    <li class="gallery-index-item">
+      <button class="gallery-index-link modal-trigger" type="button" data-index="${index}" aria-label="View image ${index + 1}: ${img.title}">
+        <span class="gallery-index-number">${String(index + 1).padStart(2, '0')}</span>
+        <span class="gallery-index-title">${img.title}</span>
+      </button>
+    </li>
+  `).join('');
 
   const componentsHTML = article.components.map(comp => `
     <li>${comp}</li>
@@ -84,13 +89,14 @@ export function createArticle(article: Article, data: AppData, onBack: () => voi
           <div class="article-columns">
             ${otherSectionsHTML}
 
-            <section class="article-list-section" style="column-span: all; margin-top: 32px;">
-              <h3 class="list-title">Project Gallery</h3>
-              <div class="gallery-compact">
-                ${galleryHTML}
-              </div>
-            </section>
           </div>
+          <section class="project-gallery" aria-labelledby="gallery-heading">
+            <header class="project-gallery-heading">
+              <h2 id="gallery-heading">Project Gallery</h2>
+              <span>${String(article.gallery.length).padStart(2, '0')} IMAGES / CLICK TO VIEW</span>
+            </header>
+            <ol class="gallery-index">${galleryHTML}</ol>
+          </section>
         </div>
       </div>
       
