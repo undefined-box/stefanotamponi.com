@@ -94,10 +94,17 @@
   background: rgba(0, 0, 0, 0.01);
 }
 
-.featured-project-box:focus-visible,
-.index-link:focus-visible {
+.featured-project-box:focus,
+.index-link:focus {
   outline: 2px solid var(--ink);
   outline-offset: 4px;
+}
+
+@supports selector(:focus-visible) {
+  .featured-project-box:focus:not(:focus-visible),
+  .index-link:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 body.theme-dark .featured-project-box:hover {

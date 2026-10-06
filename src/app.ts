@@ -80,6 +80,12 @@ export class App {
           window.location.hash = `#${link.dataset.projectId}`
         })
 
+        link.addEventListener('keydown', event => {
+          if (event.key !== ' ' && event.key !== 'Spacebar') return
+          event.preventDefault()
+          window.location.hash = `#${link.dataset.projectId}`
+        })
+
         link.addEventListener('auxclick', event => {
           if (event.button === 1) event.preventDefault()
         })
